@@ -31,6 +31,7 @@ export const PublicHolidaysPage: React.FC = () => {
     const [countries, setCountries] = useState([]);
     const [selectedCountry, setSelectedCountry] = useState("");
     const [holidays, setHolidays] = useState([]);
+    const [loading, setLoading] = useState(false);
 
     useEffect(() => {
         const fetchCountries = async () => {
@@ -48,11 +49,13 @@ export const PublicHolidaysPage: React.FC = () => {
     useEffect(() => {
         const fetchHolidays = async () => {
             if (!selectedCountry) return;
+            setLoading(true);
             const fetchURL = `${holidaysAPI}&countryIsoCode=${selectedCountry}`;
             const response = await fetch(fetchURL);
             const data = await response.json();
             console.log(data);
             setHolidays(data);
+            setLoading(false);
         }
 
         fetchHolidays();
@@ -82,13 +85,19 @@ export const PublicHolidaysPage: React.FC = () => {
                             <option key={country.isoCode} value={country.isoCode}>{country.name[0].text}</option>
                         ))}
                     </select>
-                    <ul className="mt-4">
-                        {holidays.map((holiday: Holiday) => (
-                            <li key={holiday.id} className="text-gray-600 text-sm sm:text-base">
-                                {new Date(holiday.startDate).toDateString().slice(4, -4)} - <b>{holiday.name[0].text}</b>
-                            </li>
-                        ))}
-                    </ul>
+                    <div>
+                        {loading ?
+                            <p className='mt-4'>Loading...</p>
+                            :
+                            <ul className="mt-4">
+                                {holidays.map((holiday: Holiday) => (
+                                    <li key={holiday.id} className="text-gray-600 text-sm sm:text-base">
+                                        {new Date(holiday.startDate).toDateString().slice(4, -4)} - <b>{holiday.name[0].text}</b>
+                                    </li>
+                                ))}
+                            </ul>
+                        }
+                    </div>
                 </div>
             </div>
         </div>
