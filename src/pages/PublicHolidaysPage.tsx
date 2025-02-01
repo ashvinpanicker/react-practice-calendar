@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { ArrowLeft } from 'lucide-react';
+import { BackButton } from '../components/BackButton';
+import Spinner from '../components/Spinner';
 
 // 1. Populate Dropdown with countries API 
 // 2. Set active country as Netherlands 
@@ -10,6 +10,7 @@ import { ArrowLeft } from 'lucide-react';
 type Country = {
     isoCode: string;
     name: { text: string; language: string }[];
+    officialLanguages: string[];
 }
 
 type Holiday = {
@@ -27,20 +28,22 @@ const countriesAPI = "https://openholidaysapi.org/Countries?languageIsoCode=EN";
 const holidaysAPI = `https://openholidaysapi.org/PublicHolidays?validFrom=2024-01-01&validTo=2024-12-31&languageIsoCode=EN`;
 
 export const PublicHolidaysPage: React.FC = () => {
-    const navigate = useNavigate();
-    const [countries, setCountries] = useState([]);
+    const [countries, setCountries] = useState<Country[]>([]);
     const [selectedCountry, setSelectedCountry] = useState("");
-    const [holidays, setHolidays] = useState([]);
+    const [holidays, setHolidays] = useState<Holiday[]>([]);
     const [loading, setLoading] = useState(false);
 
     useEffect(() => {
         const fetchCountries = async () => {
-            const response = await fetch(countriesAPI);
-            const data = await response.json();
-            setCountries(data);
-            setSelectedCountry("NL");
+            try {
+                const response = await fetch(countriesAPI);
+                const data = await response.json();
+                setCountries(data);
+                setSelectedCountry("NL");
+            } catch (error) {
+                console.error("Error fetching countries:", error);
+            }
         }
-
         fetchCountries();
 
     }, []);
@@ -51,13 +54,17 @@ export const PublicHolidaysPage: React.FC = () => {
             if (!selectedCountry) return;
             setLoading(true);
             const fetchURL = `${holidaysAPI}&countryIsoCode=${selectedCountry}`;
-            const response = await fetch(fetchURL);
-            const data = await response.json();
-            console.log(data);
-            setHolidays(data);
-            setLoading(false);
+            try {
+                const response = await fetch(fetchURL);
+                const data = await response.json();
+                console.log(data);
+                setHolidays(data);
+            } catch (error) {
+                console.error("Error fetching holidays:", error);
+            } finally {
+                setLoading(false);
+            }
         }
-
         fetchHolidays();
 
     }, [selectedCountry])
@@ -65,14 +72,7 @@ export const PublicHolidaysPage: React.FC = () => {
     return (
         <div className="min-h-screen bg-gray-50 p-4 sm:p-6 lg:p-8">
             <div className="max-w-4xl mx-auto">
-                <button
-                    onClick={() => navigate('/')}
-                    className="mb-8 flex items-center gap-2 text-blue-600 hover:text-blue-700 transition-colors text-sm sm:text-base"
-                >
-                    <ArrowLeft size={20} className="flex-shrink-0" />
-                    Back to Calendar
-                </button>
-
+                <BackButton />
                 <div className="bg-white rounded-xl shadow-lg p-6 sm:p-8">
                     <h1 className="text-2xl sm:text-3xl font-bold mb-4 text-gray-900">Public Holidays App</h1>
                     <select
@@ -87,7 +87,7 @@ export const PublicHolidaysPage: React.FC = () => {
                     </select>
                     <div>
                         {loading ?
-                            <p className='mt-4'>Loading...</p>
+                            <Spinner />
                             :
                             <ul className="mt-4">
                                 {holidays.map((holiday: Holiday) => (
