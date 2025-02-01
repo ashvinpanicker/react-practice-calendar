@@ -2,13 +2,14 @@ import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { Calendar } from './components/Calendar';
 import { PlaceholderPage } from './pages/PlaceholderPage';
+import { PublicHolidaysPage } from './pages/PublicHolidaysPage';
 
 function App() {
   return (
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Calendar />} />
-        <Route path="/holidays" element={<PlaceholderPage />} />
+        <Route path="/holidays" element={<PublicHolidaysPage />} />
         <Route path="/accordion" element={<PlaceholderPage />} />
         <Route path="/local-storage-hook" element={<PlaceholderPage />} />
         <Route path="/memory-game" element={<PlaceholderPage />} />
