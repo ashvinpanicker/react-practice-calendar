@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { CalendarItem } from '../types';
-import { Calendar, Code2, PartyPopper } from 'lucide-react';
+import { Code2, PartyPopper } from 'lucide-react';
 
 interface CalendarCellProps {
   item: CalendarItem;

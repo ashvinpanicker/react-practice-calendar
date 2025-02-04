@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { Calendar } from './components/Calendar';
 import { PlaceholderPage } from './pages/PlaceholderPage';
 import { PublicHolidaysPage } from './pages/PublicHolidaysPage';
+import { AccordionPage } from './pages/AccordionPage';
 
 function App() {
   return (
@@ -10,7 +11,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Calendar />} />
         <Route path="/holidays" element={<PublicHolidaysPage />} />
-        <Route path="/accordion" element={<PlaceholderPage />} />
+        <Route path="/accordion" element={<AccordionPage />} />
         <Route path="/local-storage-hook" element={<PlaceholderPage />} />
         <Route path="/memory-game" element={<PlaceholderPage />} />
         <Route path="/hacker-news" element={<PlaceholderPage />} />
