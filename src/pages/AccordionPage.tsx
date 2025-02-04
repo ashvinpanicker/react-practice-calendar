@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { BackButton } from '../components/BackButton';
 import Accordion from '../components/Accordion';
 
@@ -25,7 +25,8 @@ const accordionData = [
 
 
 export const AccordionPage: React.FC = () => {
-    
+    const [openAccordions, setOpenAccordions] = useState<boolean[]>(Array(accordionData.length).fill(false));
+
     return (
         <div className="min-h-screen bg-gray-50 p-4 sm:p-6 lg:p-8">
             <div className="max-w-4xl mx-auto">
@@ -34,7 +35,7 @@ export const AccordionPage: React.FC = () => {
                     <h1 className="text-2xl sm:text-3xl font-bold mb-4 text-gray-900">Accordion Demo</h1>
                     <div className="space-y-4">
                         {accordionData.map((item, index) => (
-                            <Accordion key={index} title={item.title} desc={item.content} />
+                            <Accordion key={index} index={index} title={item.title} desc={item.content} isOpen={openAccordions} setIsOpen={setOpenAccordions} />
                         ))}
                     </div>
                 </div>
