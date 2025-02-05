@@ -4,6 +4,7 @@ import { Calendar } from './components/Calendar';
 import { PlaceholderPage } from './pages/PlaceholderPage';
 import { PublicHolidaysPage } from './pages/PublicHolidaysPage';
 import { AccordionPage } from './pages/AccordionPage';
+import { LocalStorageHookPage } from './pages/LocalStorageHookPage';
 
 function App() {
   return (
@@ -12,7 +13,7 @@ function App() {
         <Route path="/" element={<Calendar />} />
         <Route path="/holidays" element={<PublicHolidaysPage />} />
         <Route path="/accordion" element={<AccordionPage />} />
-        <Route path="/local-storage-hook" element={<PlaceholderPage />} />
+        <Route path="/local-storage-hook" element={<LocalStorageHookPage />} />
         <Route path="/memory-game" element={<PlaceholderPage />} />
         <Route path="/hacker-news" element={<PlaceholderPage />} />
         <Route path="/todo-list" element={<PlaceholderPage />} />
