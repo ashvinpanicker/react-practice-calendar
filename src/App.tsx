@@ -1,10 +1,10 @@
-import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { Calendar } from './components/Calendar';
 import { PlaceholderPage } from './pages/PlaceholderPage';
 import { PublicHolidaysPage } from './pages/PublicHolidaysPage';
 import { AccordionPage } from './pages/AccordionPage';
 import { LocalStorageHookPage } from './pages/LocalStorageHookPage';
+import { MemoryGamePage } from './pages/MemoryGamePage';
 
 function App() {
   return (
@@ -14,7 +14,7 @@ function App() {
         <Route path="/holidays" element={<PublicHolidaysPage />} />
         <Route path="/accordion" element={<AccordionPage />} />
         <Route path="/local-storage-hook" element={<LocalStorageHookPage />} />
-        <Route path="/memory-game" element={<PlaceholderPage />} />
+        <Route path="/memory-game" element={<MemoryGamePage />} />
         <Route path="/hacker-news" element={<PlaceholderPage />} />
         <Route path="/todo-list" element={<PlaceholderPage />} />
         <Route path="/movie-search" element={<PlaceholderPage />} />
