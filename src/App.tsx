@@ -5,6 +5,7 @@ import { PublicHolidaysPage } from './pages/PublicHolidaysPage';
 import { AccordionPage } from './pages/AccordionPage';
 import { LocalStorageHookPage } from './pages/LocalStorageHookPage';
 import { MemoryGamePage } from './pages/MemoryGamePage';
+import { HackerNewsPage } from './pages/HackerNewsPage';
 
 function App() {
   return (
@@ -15,7 +16,7 @@ function App() {
         <Route path="/accordion" element={<AccordionPage />} />
         <Route path="/local-storage-hook" element={<LocalStorageHookPage />} />
         <Route path="/memory-game" element={<MemoryGamePage />} />
-        <Route path="/hacker-news" element={<PlaceholderPage />} />
+        <Route path="/hacker-news" element={<HackerNewsPage />} />
         <Route path="/todo-list" element={<PlaceholderPage />} />
         <Route path="/movie-search" element={<PlaceholderPage />} />
         <Route path="/timer" element={<PlaceholderPage />} />
