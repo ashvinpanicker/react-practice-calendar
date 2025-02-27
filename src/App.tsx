@@ -8,6 +8,7 @@ import { MemoryGamePage } from './pages/MemoryGamePage';
 import { HackerNewsPage } from './pages/HackerNewsPage';
 import { TodoListPage } from './pages/TodoListPage';
 import { MovieSearchPage } from './pages/MovieSearchPage';
+import { TimerPage } from './pages/TimerPage';
 
 function App() {
   return (
@@ -21,7 +22,7 @@ function App() {
         <Route path="/hacker-news" element={<HackerNewsPage />} />
         <Route path="/todo-list" element={<TodoListPage />} />
         <Route path="/movie-search" element={<MovieSearchPage />} />
-        <Route path="/timer" element={<PlaceholderPage />} />
+        <Route path="/timer" element={<TimerPage />} />
         <Route path="/pokemon-list" element={<PlaceholderPage />} />
         <Route path="/contact-book" element={<PlaceholderPage />} />
         <Route path="/typewriter" element={<PlaceholderPage />} />
