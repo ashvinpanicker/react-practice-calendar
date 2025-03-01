@@ -10,6 +10,7 @@ import { TodoListPage } from './pages/TodoListPage';
 import { MovieSearchPage } from './pages/MovieSearchPage';
 import { TimerPage } from './pages/TimerPage';
 import { PokemonPage } from './pages/PokemonPage';
+import { ContactBookPage } from './pages/ContactBookPage';
 
 function App() {
   return (
@@ -25,7 +26,7 @@ function App() {
         <Route path="/movie-search" element={<MovieSearchPage />} />
         <Route path="/timer" element={<TimerPage />} />
         <Route path="/pokemon-list" element={<PokemonPage />} />
-        <Route path="/contact-book" element={<PlaceholderPage />} />
+        <Route path="/contact-book" element={<ContactBookPage />} />
         <Route path="/typewriter" element={<PlaceholderPage />} />
         <Route path="/reservation" element={<PlaceholderPage />} />
         <Route path="/github-issues" element={<PlaceholderPage />} />
