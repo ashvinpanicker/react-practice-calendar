@@ -12,6 +12,7 @@ import { TimerPage } from './pages/TimerPage';
 import { PokemonPage } from './pages/PokemonPage';
 import { ContactBookPage } from './pages/ContactBookPage';
 import { TypewriterPage } from './pages/TypewriterPage';
+import { ReservationPage } from './pages/ReservationPage';
 
 function App() {
   return (
@@ -29,7 +30,7 @@ function App() {
         <Route path="/pokemon-list" element={<PokemonPage />} />
         <Route path="/contact-book" element={<ContactBookPage />} />
         <Route path="/typewriter" element={<TypewriterPage />} />
-        <Route path="/reservation" element={<PlaceholderPage />} />
+        <Route path="/reservation" element={<ReservationPage />} />
         <Route path="/github-issues" element={<PlaceholderPage />} />
       </Routes>
     </BrowserRouter>
