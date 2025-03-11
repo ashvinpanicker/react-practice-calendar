@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { Calendar } from './components/Calendar';
-import { PlaceholderPage } from './pages/PlaceholderPage';
+// import { PlaceholderPage } from './pages/PlaceholderPage';
 import { PublicHolidaysPage } from './pages/PublicHolidaysPage';
 import { AccordionPage } from './pages/AccordionPage';
 import { LocalStorageHookPage } from './pages/LocalStorageHookPage';
@@ -13,6 +13,7 @@ import { PokemonPage } from './pages/PokemonPage';
 import { ContactBookPage } from './pages/ContactBookPage';
 import { TypewriterPage } from './pages/TypewriterPage';
 import { ReservationPage } from './pages/ReservationPage';
+import { GithubIssueFilterPage } from './pages/GithubIssueFilterPage';
 
 function App() {
   return (
@@ -31,7 +32,7 @@ function App() {
         <Route path="/contact-book" element={<ContactBookPage />} />
         <Route path="/typewriter" element={<TypewriterPage />} />
         <Route path="/reservation" element={<ReservationPage />} />
-        <Route path="/github-issues" element={<PlaceholderPage />} />
+        <Route path="/github-issues" element={<GithubIssueFilterPage />} />
       </Routes>
     </BrowserRouter>
   );
