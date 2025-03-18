@@ -7,6 +7,10 @@ Saw this [interesting challenge](https://reactpractice.dev/start-here/) from the
 This repo contains my free versions of solutions for the challenges on the calendar
 [react-practice-calendar.pdf](https://reactpractice.dev/content/files/2024/12/react-practice-calendar.pdf)
 
+## 👀 Preview
+
+[Click here to preview the app deployed on vercel](https://react-practice-calendar.vercel.app/)
+
 ## 🚀 Tech Stack
 
 - React (with Hooks)
@@ -16,7 +20,7 @@ This repo contains my free versions of solutions for the challenges on the calen
 
 ## 📂 Getting Started
 
-For a quick preview, [open this repository on stackblitz](https://stackblitz.com/~/github.com/ashvinpanicker/react-practice-calendar)
+For an online sandbox environment, [open this repository on stackblitz](https://stackblitz.com/~/github.com/ashvinpanicker/react-practice-calendar)
 
 Alternatively, follow the below steps to run this locally.
 
